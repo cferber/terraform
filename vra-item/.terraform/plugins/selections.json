@@ -1,0 +1,6 @@
+{
+  "registry.terraform.io/vmware/vra": {
+    "hash": "h1:CVZiik/4ejRkkwXoy3e28oq8vVoCR12IsJjPDa1GGYs=",
+    "version": "0.3.2"
+  }
+}

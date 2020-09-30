@@ -57,10 +57,10 @@ resource "vsphere_virtual_machine" "vm" {
   clone {
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
     customize {
-#      linux_options {
-#        host_name = "terraform-test"
-#        domain    = "test.internal"
-#    }
+      linux_options {
+        host_name = "terraform-test"
+        domain    = "space.local"
+    }
     network_interface {}
   }
 }
