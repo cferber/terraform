@@ -10,7 +10,7 @@ data "vra_zone" "this" {
 
 resource "vra_project" "this" {
   name        = var.project_name
-  description = "terraform test project"
+  description = "Terraform-created project"
 
   zone_assignments {
     zone_id          = data.vra_zone.this.id
@@ -29,34 +29,6 @@ resource "vra_project" "this" {
 
   machine_naming_template = "$${resource.name}-$${####}"
 
-  constraints {
-    extensibility {
-      expression = "foo:bar"
-      mandatory  = false
-    }
-    extensibility {
-      expression = "environment:Test"
-      mandatory  = true
-    }
-
-    network {
-      expression = "foo:bar"
-      mandatory  = false
-    }
-    network {
-      expression = "environment:Test"
-      mandatory  = true
-    }
-
-    storage {
-      expression = "foo:bar"
-      mandatory  = false
-    }
-    storage {
-      expression = "environment:Test"
-      mandatory  = true
-    }
-  }
 }
 
 data "vra_project" "this" {
