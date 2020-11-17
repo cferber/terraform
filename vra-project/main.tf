@@ -40,7 +40,7 @@ data "vra_project" "this" {
 # Share Blueprints with Project in Service Broker
 
 resource "vra_catalog_source_entitlement" "this" {
-  catalog_source_id     = "eea195c3-1baa-4330-88a3-c1badfa4a992"
+  catalog_source_id     = var.catalog_source_id
   project_id            = vra_project.this.id
 }
 
