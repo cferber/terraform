@@ -1,13 +1,10 @@
-variable "refresh_token" {
-}
+variable "refresh_token" {}
 
-variable "url" {
-}
+variable "url" {}
 
 variable "insecure" {}
 
-variable "zone_name" {
-}
+variable "zone_name" {}
 
 variable "project_name" {}
 
