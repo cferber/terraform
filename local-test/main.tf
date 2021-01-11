@@ -1,7 +1,7 @@
-resource "null_resource" "test-local" {
+resource "null_resource" "download-file" {
   provisioner "local-exec" {
     command = <<EOT
-    echo "hello"
+    cat /etc/*release*
     EOT
-  } 
+  }
 }
