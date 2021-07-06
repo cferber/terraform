@@ -5,7 +5,7 @@ variable "url" {
 
 variable "refresh_token" {
   type = string
-  default = "knGOXLVzzwvb733l1hJpwFYHrRDHHogQ"
+  default = "NiQG6GwOUhiHascqCbu9BUUAXA6KUaHL"
 }
 
 variable "insecure" {

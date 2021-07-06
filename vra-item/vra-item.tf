@@ -13,7 +13,7 @@ data "vra_project" "this" {
 }
 
 resource "vra_deployment" "this" {
-  name        = "myresource"
+  name        = var.deployment_name
   description = "terraform test deployment"
 
   catalog_item_id      = data.vra_catalog_item.this.id
