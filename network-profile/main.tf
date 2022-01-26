@@ -7,9 +7,9 @@ terraform {
 }
 
 provider "vra" {
-  url           = var.url
-  refresh_token = var.refresh_token
-  insecure      = var.insecure
+  url            = var.url
+  refresh_token  = var.refresh_token
+  insecure       = var.insecure
 }
 
 data "vra_region" "this" {
@@ -25,12 +25,12 @@ data "vra_network_domain" "this" {
 }
 
 resource "vra_network_profile" "newsubnet"{
-  name = "newsubnet"
+  name = join("",["subnet-",var.subnet-address,"-",var.subnet-prefix])
   region_id = data.vra_region.this.id
 
   isolation_type = "SUBNET"
-  isolated_network_cidr_prefix = "28"
-  isolated_network_domain_cidr = "172.20.6.0/24"
+  isolated_network_cidr_prefix = var.subnet-prefix
+  isolated_network_domain_cidr = join("/",[var.subnet-address,var.subnet-prefix])
   isolated_network_domain_id = data.vra_network_domain.this.id
   isolated_external_fabric_network_id = data.vra_fabric_network.this.id
   custom_properties = {
@@ -44,6 +44,5 @@ resource "vra_network_profile" "newsubnet"{
 }
 
 output "network-profile-tag" {
-  value = "network:newsubnet"
-#  value = [for tags in vra_network_profile.newsubnet.tags : join(":",[tags.key,tags.value])]
+  value = [for tags in vra_network_profile.newsubnet.tags : join(":",[tags.key,tags.value])]
 }
