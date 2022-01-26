@@ -44,6 +44,6 @@ resource "vra_network_profile" "newsubnet"{
 }
 
 output "network-profile-tag" {
-  value = vra_network_profile.newsubnet.name
+  value = "network:newsubnet"
 #  value = [for tags in vra_network_profile.newsubnet.tags : join(":",[tags.key,tags.value])]
 }
